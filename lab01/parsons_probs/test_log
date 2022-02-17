@@ -1,0 +1,38 @@
+=====================================================================
+Assignment: Lab 1
+OK, version v1.18.1
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Doctests for add_in_range
+
+>>> add_in_range(3, 5)  # .Case 1
+
+# Error: expected
+#     12
+# but got
+
+:( Test Case 1 failed
+---------------------------------------------------------------------
+
+>>> add_in_range(1, 10)  # .Case 2
+
+# Error: expected
+#     55
+# but got
+
+:( Test Case 2 failed
+---------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+Backup... 0.0% completeBackup... 100% complete
+[31mBackup past deadline by 18 days, 6 hours, 38 minutes, and 25 seconds[0m
+[32mBackup successful for user: worldkingscoding@gmail.com[0m
+
