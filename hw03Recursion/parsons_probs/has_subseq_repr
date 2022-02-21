@@ -1,0 +1,13 @@
+def has_subseq(n, seq): #0given
+if !BLANK:   #1given #blankseq==0
+return True #2given
+if !BLANK:   #1given #blankn==0
+return False #2given
+if !BLANK:   #1given #blankn%10 == seq%10
+return !BLANK   #2given #blankhas_subseq(n//10,seq//10) 
+without = has_subseq(!BLANK)   #1given #blank0,1
+return has_subseq(!BLANK) or !BLANK   #1given #blankn//10,seq #blankwithout
+print('DEBUG:', !BLANK)
+print('DEBUG:', !BLANK)
+# !BLANK
+# !BLANK

@@ -72,3 +72,65 @@ def is_prime(n):
         return helper(i + 1)
 
     return helper(2)
+
+
+#tree recursion
+
+
+def count_stair_ways(n):
+    """返回爬上 n 级楼梯的方法数,一次移动 1 步或 2 步.
+    >>> count_stair_ways(4)
+    5
+    """
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    return count_stair_ways(n - 1) + count_stair_ways(n - 2)
+
+
+def count_k(n, k):
+    """ 返回爬上 n 级楼梯的方法数,一次移动最多k(k>0)步.
+    >>> count_k(3, 3) # 3, 2 + 1, 1 + 2, 1 + 1 + 1
+    4
+    >>> count_k(4, 4)
+    8
+    >>> count_k(10, 3)
+    274
+    >>> count_k(300, 1) # Only one step at a time
+    1
+    """
+    def func(n):
+        if n == 0:
+            return 1
+        elif n < 0:
+            return 0
+        return func1(n)
+
+    def func1(n, x=1):
+        num = 0
+        while x <= k:
+            num += func(n - x)
+            x += 1
+        return num
+
+    return func1(n)
+    """
+    other ans
+    if n == 0:
+        return 1
+    elif n < 0:
+        return 0
+    else:
+        total = 0
+        i = 1
+        while i <= k:
+            total += count_k(n - i, k)
+            i += 1
+        return total
+    """
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

@@ -173,5 +173,185 @@ def Y_tester():
                                 x()(sub(n, 1))))  # Replace
 
 
-tmp = Y_tester()
-print(tmp(5))
+"""
+Q3:缺失数字
+写递归函数missing_digits(接受一个正整数n)并返回一个数
+该函数采用按递增顺序排序的数字n(例如,12289是有效的,但15362并98764没有)
+它返回 n 中缺失数字的数量。 
+缺失数字是 a 中 n 的第一个和最后一个数字之间的一个不在 n 中的数字
+"""
+
+
+def missing_digits(n):
+    """Given a number a that is in sorted, non-decreasing order,
+    return the number of missing digits in n. A missing digit is
+    a number between the first and last digit of a that is not in n.
+    >>> missing_digits(1248) # 3, 5, 6, 7
+    4
+    >>> missing_digits(19) # 2, 3, 4, 5, 6, 7, 8
+    7
+    >>> missing_digits(1122) # No missing numbers
+    0
+    >>> missing_digits(123456) # No missing numbers
+    0
+    >>> missing_digits(3558) # 4, 6, 7
+    3
+    >>> missing_digits(35578) # 4, 6
+    2
+    >>> missing_digits(12456) # 3
+    1
+    >>> missing_digits(16789) # 2, 3, 4, 5
+    4
+    >>> missing_digits(4) # No missing numbers between 4 and 4
+    0
+    >>> from construct_check import check
+    >>> # ban while or for loops
+    >>> check(HW_SOURCE_FILE, 'missing_digits', ['While', 'For'])
+    True
+    """
+
+    if n // 10 == 0:  #    n//10==n<10
+        return 0
+    else:
+        max1, min1 = n % 10, n // 10 % 10
+        if max1 > min1:
+            return max1 - min1 - 1 + missing_digits(n // 10)
+        else:
+            return missing_digits(n // 10)
+    """
+    ans1:
+    if n < 10:
+        return 0
+    last, rest = n % 10, n // 10
+    return max(last - rest % 10 - 1, 0) + missing_digits(rest)
+    
+    """
+
+
+# Q5河内塔
+def print_move(origin, destination):
+    """Print instructions to move a disk."""
+    print("Move the top disk from rod", origin, "to rod", destination)
+
+
+def move_stack(n, start, end):
+    """Print the moves required to move n disks on the start pole to the end
+    pole without violating the rules of Towers of Hanoi.
+
+    n -- number of disks
+    start -- a pole position, either 1, 2, or 3
+    end -- a pole position, either 1, 2, or 3
+
+    There are exactly three poles, and start and end must be different. Assume
+    that the start pole has at least n disks of increasing size, and the end
+    pole is either empty or has a top disk larger than the top n start disks.
+
+    >>> move_stack(1, 1, 3)
+    Move the top disk from rod 1 to rod 3
+    >>> move_stack(2, 1, 3)
+    Move the top disk from rod 1 to rod 2
+    Move the top disk from rod 1 to rod 3
+    Move the top disk from rod 2 to rod 3
+    >>> move_stack(3, 1, 3)
+    Move the top disk from rod 1 to rod 3
+    Move the top disk from rod 1 to rod 2
+    Move the top disk from rod 3 to rod 2
+    Move the top disk from rod 1 to rod 3
+    Move the top disk from rod 2 to rod 1
+    Move the top disk from rod 2 to rod 3
+    Move the top disk from rod 1 to rod 3
+    """
+    assert 1 <= start <= 3 and 1 <= end <= 3 and start != end, "Bad start/end"
+    if n == 1:
+        print_move(start, end)
+    else:
+        move_stack(n - 1, start, abs(end - start))
+        print_move(start, end)
+        move_stack(n - 1, abs(end - start), end)
+
+
+def repeated(f, n):
+    """返回一个接受整数并计算 f 在该整数上的第 n 次调用的函数。使用递归实现
+
+    >>> add_three = repeated(lambda x: x + 1, 3)
+    >>> add_three(5)
+    8
+    >>> square = lambda x: x ** 2
+    >>> repeated(square, 2)(5) # square(square(5))
+    625
+    >>> repeated(square, 4)(5) # square(square(square(square(5))))
+    152587890625
+    >>> repeated(square, 0)(5)
+    5
+    >>> from construct_check import check
+    >>> # ban iteration
+    >>> check(HW_SOURCE_FILE, 'repeated',
+    ...       ['For', 'While'])
+    True
+    """
+    def fun1(x, n=n):
+        if n == 0:
+            return x
+        if n == 1:
+            return f(x)
+        return fun1(f(x), n - 1)
+
+    return fun1
+
+
+"""
+重要提示:除了索引len和切片之外,您不得使用任何字符串操作。
+具体来说,您不能reversed以负步长调用或索引。
+"""
+
+
+def is_palindrome(s):
+    """
+    给定一个 string s,返回s是否是回文。
+    >>> is_palindrome("tenet")
+    True
+    >>> is_palindrome("tenets")
+    False
+    >>> is_palindrome("raincar")
+    False
+    >>> is_palindrome("")
+    True
+    >>> is_palindrome("a")
+    True
+    >>> is_palindrome("ab")
+    False
+    """
+    if len([1 for x in range(0, len(s))
+            if s[x] == s[len(s) - x - 1]]) == len(s):
+        return True
+    return False
+
+
+def greatest_pal(s):
+    """
+    给定一个字符串 s,返回 s 的最长回文子串。 
+    如果有多个最大长度的回文子串,则返回最左边的一个
+    >>> greatest_pal("tenet")
+    'tenet'
+    >>> greatest_pal("tenets")
+    'tenet'
+    >>> greatest_pal("stennet")
+    'tennet'
+    >>> greatest_pal("25 racecars")
+    'racecar'
+    >>> greatest_pal("abc")
+    'a'
+    >>> greatest_pal("")
+    ''
+    """
+    if is_palindrome(s):
+        return s
+    left, right = 0, len(s)
+    if len(greatest_pal(s[1:])) > len(greatest_pal(s[:len(s) - 1])):
+        return greatest_pal(s[1:])
+    return greatest_pal(s[:len(s) - 1])
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
