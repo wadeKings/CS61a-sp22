@@ -15,6 +15,7 @@ def has_subseq(n, seq):
     >>> has_subseq(1343412, 134)
     True
     """
+    #能过测试，漏洞在n,seq==0的时候
     if seq == 0:
         return True
     if n == 0:
@@ -23,3 +24,13 @@ def has_subseq(n, seq):
         return has_subseq(n // 10, seq // 10)
     without = has_subseq(0, 1)  #多余的
     return has_subseq(n // 10, seq) or without
+    """
+    if n == seq:
+        return True
+    if n < seq:
+        return False
+    without = has_subseq(n // 10, seq)
+    if seq % 10 == n % 10:
+        return has_subseq(n // 10, seq // 10) or without
+    return without
+    """
