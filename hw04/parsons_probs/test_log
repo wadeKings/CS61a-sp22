@@ -1,0 +1,27 @@
+=====================================================================
+Assignment: Homework 4
+OK, version v1.18.1
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Doctests for SmartFridge
+
+>>> fridgey = SmartFridge()
+>>> fridgey.add_item('Mayo', 1)
+'I now have 1 Mayo'
+>>> fridgey.add_item('Mayo', 2)
+'I now have 3 Mayo'
+>>> fridgey.use_item('Mayo', 2.5)
+'I have 0.5 Mayo left'
+>>> fridgey.use_item('Mayo', 0.5)
+'Uh oh, buy more Mayo!'
+-- OK! --
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed! No cases failed.
+
+Backup... 0.0% completeBackup... 7.689999999999998% complete
+
