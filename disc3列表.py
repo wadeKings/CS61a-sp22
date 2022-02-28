@@ -54,7 +54,7 @@ def my_reduce(combiner, seq):
     """
     total = seq[0]
     for x in range(1, len(seq)):
-        total = combiner(seq[x], total)
+        total = combiner(total, seq[x])
     return total
 
 
