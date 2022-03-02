@@ -204,10 +204,6 @@ def missing_digits(n):
     4
     >>> missing_digits(4) # No missing numbers between 4 and 4
     0
-    >>> from construct_check import check
-    >>> # ban while or for loops
-    >>> check(HW_SOURCE_FILE, 'missing_digits', ['While', 'For'])
-    True
     """
 
     if n // 10 == 0:  #    n//10==n<10
@@ -265,9 +261,9 @@ def move_stack(n, start, end):
     if n == 1:
         print_move(start, end)
     else:
-        move_stack(n - 1, start, abs(end - start))
+        move_stack(n-1, start, 6-start-end)
         print_move(start, end)
-        move_stack(n - 1, abs(end - start), end)
+        move_stack(n-1, 6-start-end, end)
 
 
 def repeated(f, n):
@@ -283,11 +279,6 @@ def repeated(f, n):
     152587890625
     >>> repeated(square, 0)(5)
     5
-    >>> from construct_check import check
-    >>> # ban iteration
-    >>> check(HW_SOURCE_FILE, 'repeated',
-    ...       ['For', 'While'])
-    True
     """
     def fun1(x, n=n):
         if n == 0:
@@ -351,6 +342,70 @@ def greatest_pal(s):
         return greatest_pal(s[1:])
     return greatest_pal(s[:len(s) - 1])
 
+
+def count_sums(n,f,m):
+    """
+    返回通过重复用 m 调用函数f获得的可以将a划分为唯一正值的方式的数量
+
+    >>> count_sums(6, lambda k: k-1, 4)
+    2
+    >>> count_sums(12, lambda k: k-2,12)
+    4
+    >>> count_sums(11, lambda k:k//2,8)
+    1
+    """
+
+    if n == 0:
+        return 1
+    if m <= 0 or n < 0:
+        return 0
+    else:
+        a = count_sums(n-m,f,f(m))
+        b = count_sums(n,f,f(m))   
+        return a+b          
+
+"""
+在博弈论中,有两个玩家,玩家 0 和玩家 1。一开始,有 n 个饼干。 
+玩家交替轮流拿饼干,玩家一次可以拿走 1 到 3 个饼干。 拿走最后一块饼干的玩家获胜。 
+填写函数 can_win,如果可以从给定数量的 cookie 开始获胜,则返回 True。 
+
+它使用以下思想:
+
+如果 cookie 的数量为负数,则不可能获胜。
+如果该动作迫使对手输,则返回 True(因为我们可以赢)
+如果没有任何动作可以强制获胜,那么我们不能保证获胜
+"""
+def can_win(number):
+    """
+    如果保证当前玩家从给定状态开始获胜,则返回 True 
+
+    >>> can_win (-1) # invalid game state
+    False
+    >>> can_win (3) # take all three !
+    True
+    >>> can_win (6)
+    True
+    """
+    def func(person,number):
+        if number <= 0 and person % 2 == 0:
+           return False
+        elif number <= 3 and person % 2 == 0 :
+            return True
+        return func(person+1,number-1) and func(person+1,number-2) and func(person+1,number-3)        
+    return func(0,number)
+
+    """
+    def can_win(number):
+        if number <= 0:
+            return False
+        action = 1
+        while action <= 3:
+            new_state = number - action
+            if not can_win ( new_state ):
+                return True
+            action += 1
+        return False
+    """
 
 if __name__ == "__main__":
     import doctest

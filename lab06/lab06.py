@@ -33,7 +33,8 @@ class Cat:
         """
         cat_names = ["Felix", "Bugs", "Grumpy"]
         "*** YOUR CODE HERE ***"
-        return cls(____, ____, ____)
+        name_index= len(owner)%len(cat_names)
+        return cls(cat_names[name_index],owner , len(owner)+len(cat_names[name_index]))
 
 
 class Account:
@@ -76,7 +77,15 @@ class Account:
     def time_to_retire(self, amount):
         """Return the number of years until balance would grow to amount."""
         assert self.balance > 0 and amount > 0 and self.interest > 0
-        "*** YOUR CODE HERE ***"
+        balance=self.balance
+        year=0
+        while balance < amount:
+            balance+=balance*self.interest
+            year+=1
+
+        return year    
+            
+            
 
 
 class FreeChecking(Account):
@@ -105,4 +114,24 @@ class FreeChecking(Account):
     withdraw_fee = 1
     free_withdrawals = 2
 
-    "*** YOUR CODE HERE ***"
+    def withdraw(self, amount):
+        if amount > self.balance:
+            self.free_withdrawals-=1
+            #print('DEBUG:',self.free_withdrawals)
+            return "Insufficient funds"
+        if amount > self.max_withdrawal:
+            self.free_withdrawals-=1
+            #print('DEBUG:',self.free_withdrawals)
+            return "Can't withdraw that amount"
+        if self.free_withdrawals <= 0:    
+           if  amount <= self.balance - self.withdraw_fee:
+               self.balance = self.balance - amount-self.withdraw_fee
+           else:
+               self.free_withdrawals-=1
+               return "Insufficient funds"   
+        else:
+            
+            self.free_withdrawals -=1
+            #print('DEBUG:',self.free_withdrawals)
+            self.balance = self.balance - amount
+        return self.balance
