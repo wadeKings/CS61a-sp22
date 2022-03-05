@@ -15,18 +15,22 @@ class Place:
 
     def __init__(self, name, exit=None):
         """Create a Place with the given NAME and EXIT.
-
+        
         name -- A string; the name of this Place.
-        exit -- The Place reached by exiting this Place (may be None).
+        exit -- 离开这个Plance到达的Plance(可能为None).
+
+        一个新创建的Place它的ebtrance = None
+        如果 Place 有出口,则出口的入口设置为该 Place。
         """
         self.name = name
-        self.exit = exit
+        self.exit = exit      # 跟踪出口
         self.bees = []        # A list of Bees
         self.ant = None       # An Ant
-        self.entrance = None  # A Place
-        # Phase 1: Add an entrance to the exit
+        self.entrance = None  # A Place,跟踪入口
+        # Phase 1: Add an entrance(入口) to the exit(出口)
         # BEGIN Problem 2
-        "*** YOUR CODE HERE ***"
+        if self.exit != None:
+            self.exit.entrance = self
         # END Problem 2
 
     def add_insect(self, insect):
@@ -158,6 +162,7 @@ class HarvesterAnt(Ant):
     name = 'Harvester'
     implemented = True
     # OVERRIDE CLASS ATTRIBUTES HERE
+    food_cost = 2
 
     def action(self, gamestate):
         """Produce 1 additional food for the colony.
@@ -165,7 +170,7 @@ class HarvesterAnt(Ant):
         gamestate -- The GameState, used to access game state information.
         """
         # BEGIN Problem 1
-        "*** YOUR CODE HERE ***"
+        gamestate.food += 1
         # END Problem 1
 
 
@@ -176,6 +181,7 @@ class ThrowerAnt(Ant):
     implemented = True
     damage = 1
     # ADD/OVERRIDE CLASS ATTRIBUTES HERE
+    food_cost = 3
 
     def nearest_bee(self):
         """Return the nearest Bee in a Place that is not the HIVE, connected to
@@ -184,6 +190,18 @@ class ThrowerAnt(Ant):
         This method returns None if there is no such Bee (or none in range).
         """
         # BEGIN Problem 3 and 4
+        this_place = self.place
+        while this_place.is_hive == False:
+            bool = random_bee(this_place.bees)
+            if bool != None:
+                return bool 
+            elif this_place.exit == None:    
+                 return None
+            this_place = this_place.entrance
+                    
+
+        return None        
+                 
         return random_bee(self.place.bees)  # REPLACE THIS LINE
         # END Problem 3 and 4
 
