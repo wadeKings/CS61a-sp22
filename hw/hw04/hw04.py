@@ -1,6 +1,6 @@
 from logging import makeLogRecord
 
-from numpy import number
+
 
 
 def merge(lst1, lst2):
@@ -31,6 +31,13 @@ def merge(lst1, lst2):
         return [lst2[len2]] + func(len1, len2 + 1)
 
     return func(0, 0)
+
+    if not lst1 or not lst2:
+        return lst1 + lst2
+    elif lst1[0] < lst2[0]:
+        return [lst1[0]] + merge(lst1[1:], lst2)
+    else:
+        return [lst2[0]] + merge(lst1, lst2[1:])
 
 
 class Mint:

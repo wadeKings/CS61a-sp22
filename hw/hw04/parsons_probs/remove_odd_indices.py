@@ -12,6 +12,8 @@ def remove_odd_indices(lst, odd):
     >>> m
     [6, 8]
     """
+    if not lst:
+        return lst
     if odd:
         return [ lst[x] for x in range(len(lst)) if x%2==0]
     else:
