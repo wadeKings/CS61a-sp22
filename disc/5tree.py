@@ -156,7 +156,6 @@ def height(t):
     if not t.branches:
          return 0
     list1 = [height(x) for x in t.branches]
-    print(list1)
     return 1 + max(list1)     
 
 
@@ -182,12 +181,34 @@ def find_path(t, x):
     [2, 7, 6, 5]
     >>> find_path(t, 10)  # returns None
     """
+    
     if  t.label == x :
         return [t.label]
     for tree in t.branches:
         path = find_path(tree,x)
-        if path:
-            return  tree.label  
+        if path :
+            return  [t.label] +path  
 
-t = Tree(2, [Tree(7, [Tree(3), Tree(6, [Tree(5), Tree(11)])]), Tree(15)])
-print(find_path(t, 5)    )
+
+def prune_small(t, n):
+    """Prune the tree mutatively, keeping only the n branches
+    of each node with the smallest label.
+
+    >>> t1 = Tree(6)
+    >>> prune_small(t1, 2)
+    >>> t1
+    Tree(6)
+    >>> t2 = Tree(6, [Tree(3), Tree(4)])
+    >>> prune_small(t2, 1)
+    >>> t2
+    Tree(6, [Tree(3)])
+    >>> t3 = Tree(6, [Tree(1), Tree(3, [Tree(1), Tree(2), Tree(3)]), Tree(5, [Tree(3), Tree(4)])])
+    >>> prune_small(t3, 2)
+    >>> t3
+    Tree(6, [Tree(1), Tree(3, [Tree(1), Tree(2)])])
+    """
+    while len(t.branches) > n:
+        largest = max(t.branches, key=lambda x: x.label)
+        t.branches.remove(largest)
+    for b in t.branches:
+        prune_small(b, n)
