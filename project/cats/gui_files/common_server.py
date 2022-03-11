@@ -21,6 +21,8 @@ CONTENT_TYPE_LOOKUP = dict(
     css="text/css",
     js="application/javascript",
     svg="image/svg+xml",
+    gif="image/gif",
+    ico="image/x-icon",
 )
 
 
@@ -62,7 +64,6 @@ class Handler(server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         try:
-            self.send_response(HTTPStatus.OK)
             parsed_url = urlparse(unquote(self.path))
             path = parsed_url.path
             query_params = parse_qs(parsed_url.query)
@@ -77,13 +78,18 @@ class Handler(server.BaseHTTPRequestHandler):
                     path = GUI_FOLDER + "index.html"
                 with open(path, "rb") as f:
                     out = f.read()
-
+        except FileNotFoundError:
+            self.send_response(HTTPStatus.NOT_FOUND)
+            self.end_headers()
+        except Exception as e:
+            print(e)
+            self.send_response(HTTPStatus.INTERNAL_SERVER_ERROR)
+            self.end_headers()
+        else:
+            self.send_response(HTTPStatus.OK)
             self.send_header("Content-type", CONTENT_TYPE_LOOKUP[path.split(".")[-1]])
             self.end_headers()
             self.wfile.write(out)
-
-        except Exception as e:
-            print(e)
 
     def do_POST(self):
         content_length = int(self.headers["Content-Length"])
@@ -91,16 +97,18 @@ class Handler(server.BaseHTTPRequestHandler):
         data = json.loads(raw_data)
         path = unquote(self.path)
 
-        self.send_response(HTTPStatus.OK)
-        self.send_header("Content-type", "application/json")
-        self.end_headers()
-
         try:
             result = PATHS[path](**snakify(data))
-            self.wfile.write(bytes(json.dumps(result), "utf-8"))
         except Exception as e:
             print(e)
+            self.send_response(HTTPStatus.INTERNAL_SERVER_ERROR)
+            self.end_headers()
             raise
+        else:
+            self.send_response(HTTPStatus.OK)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            self.wfile.write(bytes(json.dumps(result), "utf-8"))
 
     def log_message(self, *args, **kwargs):
         pass
@@ -211,7 +219,9 @@ def start_server():
                 mimetype=CONTENT_TYPE_LOOKUP[route.split(".")[-1]],
             )
 
-        app.add_url_rule(route, handler.__name__, wrapped_handler, methods=["GET"])
+        app.add_url_rule(
+            route, handler.__name__ + route, wrapped_handler, methods=["GET"]
+        )
 
     @app.route("/")
     def index():
@@ -231,7 +241,10 @@ def start_client(port, default_server, gui_folder, standalone):
     httpd = HTTPServer(("localhost", port), Handler)
     if not standalone:
         webbrowser.open("http://localhost:" + str(port), new=0, autoraise=True)
-    httpd.serve_forever()
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        httpd.socket.close()
 
 
 def snakify(data):
@@ -239,7 +252,7 @@ def snakify(data):
     for key, val in data.items():
         snake_key = []
         for x in key:
-            if x == x.upper():
+            if x != x.lower():
                 snake_key += "_"
             snake_key += x.lower()
         out["".join(snake_key)] = val

@@ -12,7 +12,10 @@ def label_multiplier(t, val):
     >>> t2
     Tree(30, [Tree(27), Tree(24, [Tree(21), Tree(18)]), Tree(15, [Tree(12), Tree(9), Tree(6)])])
     """
-    "*** YOUR CODE HERE ***"
+    
+    t.label *=val
+    for tree in t.branches:
+        label_multiplier(tree,val)    
 
 
 class Tree:

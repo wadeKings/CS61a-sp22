@@ -1,67 +1,6 @@
-def store_digits(n):
-    """Stores the digits of a positive number n in a linked list.
-
-    >>> s = store_digits(1)
-    >>> s
-    Link(1)
-    >>> store_digits(2345)
-    Link(2, Link(3, Link(4, Link(5))))
-    >>> store_digits(876)
-    Link(8, Link(7, Link(6)))
-    >>> # a check for restricted functions
-    >>> import inspect, re
-    >>> cleaned = re.sub(r"#.*\\n", '', re.sub(r'"{3}[\s\S]*?"{3}', '', inspect.getsource(store_digits)))
-    >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
-    >>> link1 = Link(3, Link(Link(4), Link(5, Link(6))))
-    """
-    "*** YOUR CODE HERE ***"
-
-
-def cumulative_mul(t):
-    """Mutates t so that each node's label becomes the product of all labels in
-    the corresponding subtree rooted at t.
-
-    >>> t = Tree(1, [Tree(3, [Tree(5)]), Tree(7)])
-    >>> cumulative_mul(t)
-    >>> t
-    Tree(105, [Tree(15, [Tree(5)]), Tree(7)])
-    >>> otherTree = Tree(2, [Tree(1, [Tree(3), Tree(4), Tree(5)]), Tree(6, [Tree(7)])])
-    >>> cumulative_mul(otherTree)
-    >>> otherTree
-    Tree(5040, [Tree(60, [Tree(3), Tree(4), Tree(5)]), Tree(42, [Tree(7)])])
-    """
-    "*** YOUR CODE HERE ***"
-
-
-def has_cycle(link):
-    """Return whether link contains a cycle.
-
-    >>> s = Link(1, Link(2, Link(3)))
-    >>> s.rest.rest.rest = s
-    >>> has_cycle(s)
-    True
-    >>> t = Link(1, Link(2, Link(3)))
-    >>> has_cycle(t)
-    False
-    >>> u = Link(2, Link(2, Link(2)))
-    >>> has_cycle(u)
-    False
-    """
-    "*** YOUR CODE HERE ***"
-
-
-def has_cycle_constant(link):
-    """Return whether link contains a cycle.
-
-    >>> s = Link(1, Link(2, Link(3)))
-    >>> s.rest.rest.rest = s
-    >>> has_cycle_constant(s)
-    True
-    >>> t = Link(1, Link(2, Link(3)))
-    >>> has_cycle_constant(t)
-    False
-    """
-    "*** YOUR CODE HERE ***"
+from ast import If
+from operator import truediv
+from queue import Empty
 
 
 class Link:
@@ -107,8 +46,107 @@ class Link:
 link = Link(5, Link(6, Link(7)))
 # >>>link
 # Link(5, Link(6, Link(7)))
-print(link)
+#print(link)
 #<5 6 7>
+
+
+def store_digits(n):
+    """Stores the digits of a positive number n in a linked list.
+
+    >>> s = store_digits(1)
+    >>> s
+    Link(1)
+    >>> store_digits(2345)
+    Link(2, Link(3, Link(4, Link(5))))
+    >>> store_digits(876)
+    Link(8, Link(7, Link(6)))
+    >>> # a check for restricted functions
+    >>> import inspect, re
+    >>> cleaned = re.sub(r"#.*\\n", '', re.sub(r'"{3}[\s\S]*?"{3}', '', inspect.getsource(store_digits)))
+    >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
+    >>> link1 = Link(3, Link(Link(4), Link(5, Link(6))))
+    """
+     
+    if type(n) is int :
+        lst =[]
+        while n >10:
+            lst += [n%10]
+            n = n //10  
+        lst += [n] 
+        n = lst    
+    if  n:
+        return Link(n[-1],store_digits(n[:-1])) 
+    else:
+        return Link.empty             
+
+
+
+def cumulative_mul(t):
+    """Mutates t so that each node's label becomes the product of all labels in
+    the corresponding subtree rooted at t.
+
+    >>> t = Tree(1, [Tree(3, [Tree(5)]), Tree(7)])
+    >>> cumulative_mul(t)
+    >>> t
+    Tree(105, [Tree(15, [Tree(5)]), Tree(7)])
+    >>> otherTree = Tree(2, [Tree(1, [Tree(3), Tree(4), Tree(5)]), Tree(6, [Tree(7)])])
+    >>> cumulative_mul(otherTree)
+    >>> otherTree
+    Tree(5040, [Tree(60, [Tree(3), Tree(4), Tree(5)]), Tree(42, [Tree(7)])])
+    """
+    if  t.branches:
+        for tree in t.branches:
+            cumulative_mul(tree)
+            t.label *=tree.label
+         
+
+    
+
+
+def has_cycle(link):
+    """Return whether link contains a cycle.
+
+    >>> s = Link(1, Link(2, Link(3)))
+    >>> s.rest.rest.rest = s
+    >>> has_cycle(s)
+    True
+    >>> t = Link(1, Link(2, Link(3)))
+    >>> has_cycle(t)
+    False
+    >>> u = Link(2, Link(2, Link(2)))
+    >>> has_cycle(u)
+    False
+    """
+    s = link 
+    while link.rest != Link.empty:
+        if link.rest == s:
+            return True
+        else:
+            link = link.rest    
+    return False           
+
+
+
+def has_cycle_constant(link):
+    """Return whether link contains a cycle.
+
+    >>> s = Link(1, Link(2, Link(3)))
+    >>> s.rest.rest.rest = s
+    >>> has_cycle_constant(s)
+    True
+    >>> t = Link(1, Link(2, Link(3)))
+    >>> has_cycle_constant(t)
+    False
+    """
+    s = link 
+    while link.rest != Link.empty:
+        if link.rest == s:
+            return True
+        else:
+            link = link.rest    
+    return False 
+
+
 
 class Tree:
     """

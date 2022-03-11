@@ -7,47 +7,46 @@ test = {
         {
           'code': r"""
           >>> take_turn(2, 0, make_test_dice(4, 5, 1))
-          9
+          872dbe4a4fe5d8451aa842c21194c866
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
           >>> take_turn(3, 0, make_test_dice(4, 6, 1))
-          1
+          43d176e102c8d95338faf8791aa509b3
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
           >>> take_turn(0, 2)
-          4
+          c42887e7b9ffe8fc26bb57b61329f916
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
           >>> take_turn(0, 0)
-          7
+          16e2cf37e8254529473d9e0a36b75fcb
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
           >>> take_turn(0, 1)
-          1
+          4
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
@@ -55,8 +54,7 @@ test = {
           12
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
@@ -64,8 +62,7 @@ test = {
           36
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
@@ -73,8 +70,7 @@ test = {
           28
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
@@ -82,8 +78,7 @@ test = {
           40
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         }
       ],
       'scored': True,
@@ -102,8 +97,7 @@ test = {
           9002
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         }
       ],
       'scored': True,

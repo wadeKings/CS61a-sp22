@@ -38,7 +38,6 @@ def main():
 # AUTHENTICATION #
 ################ #
 
-
 """
 Bacon OK integration: mostly ported from OK Client
 https://github.com/okpy/ok-client/blob/master/client/utils/auth.py
@@ -274,7 +273,6 @@ class OAuthSession:
             cur_time = int(time.time())
             self.expires_at = cur_time + expires_in
         return self.access_token
-
 
 if __name__ == '__main__':
     main()

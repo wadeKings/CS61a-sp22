@@ -5,12 +5,12 @@ import random
 
 if __name__ == '__main__':
     pickled_file = "data/testcases.out"
-    valid_words = "data/final_diff_words.txt"
+    word_list = "data/final_diff_words.txt"
 
     with open(pickled_file.strip(), 'rb') as pickled_dict:
         test_dict = pickle.load(pickled_dict)
 
-    with open(valid_words.strip(), 'r', encoding='utf8') as correct_file:
+    with open(word_list.strip(), 'r', encoding='utf8') as correct_file:
         correct_words = list(correct_file.read().split())
 
     start_time = time.time()

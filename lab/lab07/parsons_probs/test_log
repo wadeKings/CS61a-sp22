@@ -1,0 +1,30 @@
+=====================================================================
+Assignment: Lab 7
+OK, version v1.18.1
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Doctests for reverse_link
+
+>>> s = Link(1, Link(2, Link(3, Link.empty)))
+>>> reverse_link(s)
+# Error: evaluation exceeded 10 seconds - check for infinite loops
+
+# Error: expected
+#     Link(3, Link(2, Link(1)))
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     Timeout: 
+
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+Backup... 0.0% completeBackup... 100% complete
+[32mBackup successful for user: worldkingscoding@gmail.com[0m
+[32mURL: https://okpy.org/cal/cs61a/sp22/lab07/backups/PMm9Gn[0m
+

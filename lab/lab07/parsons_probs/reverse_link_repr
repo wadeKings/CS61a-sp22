@@ -1,0 +1,10 @@
+def reverse_link(lnk): #0given
+result = Link.empty #1given
+while !BLANK:  #1given #blanklnk.rest  is not Link.empty
+result = Link(!BLANK)  #2given #blankLink(lnk.first,result)
+lnk = !BLANK #1given #blanklnk.rest
+return result #1given
+print('DEBUG:', !BLANK)
+print('DEBUG:', !BLANK)
+# !BLANK
+# !BLANK

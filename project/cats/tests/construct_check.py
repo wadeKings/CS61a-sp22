@@ -1,10 +1,12 @@
 from ast import parse, NodeVisitor, Name
 
+# For error messages (student-facing) only
 _NAMES = {
     'Add': '+',
     'And': 'and',
     'Assert': 'assert',
     'Assign': '=',
+    'AnnAssign': '=',
     'AugAssign': 'op=',
     'BitAnd': '&',
     'BitOr': '|',
@@ -47,6 +49,7 @@ _NAMES = {
     'LtE': '<=',
     'Mod': '%',
     'Mult': '*',
+    'NamedExpr': ':=',
     'Nonlocal': 'nonlocal',
     'Not': 'not',
     'NotEq': '!=',

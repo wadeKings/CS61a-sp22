@@ -1,972 +1,872 @@
 test = {
   'name': 'Question 4',
-  'points': 1,
+  'points': 2,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> hog_pile(25, 43)
-          0
+          >>> more_boar(21, 43)
+          bc6c4798917b91886d7fa5f56e42878f
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile(32, 33)
-          0
+          >>> more_boar(32, 33)
+          d763fd836a7bfb096222e985b161b406
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile(7, 7)
-          7
+          >>> more_boar(6, 18)
+          bc6c4798917b91886d7fa5f56e42878f
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile(26, 26)
-          26
+          >>> more_boar(22, 43)
+          bc6c4798917b91886d7fa5f56e42878f
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile(23, 23)
-          23
+          >>> more_boar(23, 23)
+          d763fd836a7bfb096222e985b161b406
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile(193, 42)
-          0
+          >>> more_boar(209, 980)
+          bc6c4798917b91886d7fa5f56e42878f
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> a = hog_pile(187, 187)
+          >>> a = more_boar(3, 92)
           >>> a # check that the value is being returned, not printed
-          187
+          d763fd836a7bfb096222e985b161b406
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile(64, 67)
-          0
+          >>> more_boar(64, 67)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(12, 72)
-          0
+          >>> more_boar(5, 79)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(72, 22)
-          0
+          >>> more_boar(72, 22)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(3, 56)
-          0
+          >>> more_boar(21, 19)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(439, 709)
-          0
+          >>> more_boar(72, 50)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(61, 16)
-          0
+          >>> more_boar(1, 82)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(99, 84)
-          0
+          >>> more_boar(980, 618)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(25, 67)
-          0
+          >>> more_boar(72, 89)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(5, 90)
-          0
+          >>> more_boar(21, 72)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(54, 56)
-          0
+          >>> more_boar(54, 56)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(15, 64)
-          0
+          >>> more_boar(28, 89)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(80, 91)
-          0
+          >>> more_boar(32, 45)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(6, 2)
-          0
+          >>> more_boar(208, 980)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(74, 16)
-          0
+          >>> more_boar(66, 46)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(12, 22)
-          0
+          >>> more_boar(41, 67)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(12, 5)
-          0
+          >>> more_boar(5, 0)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(69, 65)
-          0
+          >>> more_boar(14, 37)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(15, 6)
-          0
+          >>> more_boar(1, 17)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(69, 62)
-          0
+          >>> more_boar(69, 62)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(98, 40)
-          0
+          >>> more_boar(22, 34)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(15, 95)
-          0
+          >>> more_boar(404, 843)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(56, 4)
-          0
+          >>> more_boar(4, 48)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(44, 64)
-          0
+          >>> more_boar(45, 88)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(40, 73)
-          0
+          >>> more_boar(15, 36)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(192, 343)
-          0
+          >>> more_boar(87, 17)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(90, 15)
-          0
+          >>> more_boar(15, 61)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(6, 48)
-          0
+          >>> more_boar(53, 89)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(72, 31)
-          0
+          >>> more_boar(31, 56)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(5, 22)
-          0
+          >>> more_boar(12, 64)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(34, 40)
-          0
+          >>> more_boar(24, 85)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(45, 45)
-          45
+          >>> more_boar(2, 53)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(16, 98)
-          0
+          >>> more_boar(98, 23)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(5, 54)
-          0
+          >>> more_boar(10, 84)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(88, 66)
-          0
+          >>> more_boar(66, 18)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(85, 68)
-          0
+          >>> more_boar(11, 78)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(55, 33)
-          0
+          >>> more_boar(64, 76)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(30, 40)
-          0
+          >>> more_boar(1, 22)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(844, 251)
-          0
+          >>> more_boar(35, 67)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(53, 83)
-          0
+          >>> more_boar(752, 862)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(41, 64)
-          0
+          >>> more_boar(12, 44)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(7, 37)
-          0
+          >>> more_boar(37, 56)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(12, 98)
-          0
+          >>> more_boar(98, 80)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(92, 14)
-          0
+          >>> more_boar(14, 71)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(49, 21)
-          0
+          >>> more_boar(49, 21)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(45, 59)
-          0
+          >>> more_boar(84, 3)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(643, 892)
-          0
+          >>> more_boar(32, 95)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(40, 58)
-          0
+          >>> more_boar(31, 55)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(71, 8)
-          0
+          >>> more_boar(23, 59)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(81, 68)
-          0
+          >>> more_boar(68, 91)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(40, 54)
-          0
+          >>> more_boar(54, 12)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(11, 33)
-          0
+          >>> more_boar(70, 22)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(96, 73)
-          0
+          >>> more_boar(96, 73)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(11, 13)
-          0
+          >>> more_boar(32, 69)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(37, 61)
-          0
+          >>> more_boar(18, 89)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(2, 15)
-          0
+          >>> more_boar(6, 68)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(39, 72)
-          0
+          >>> more_boar(61, 77)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(399, 192)
-          0
+          >>> more_boar(14, 87)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(5, 22)
-          0
+          >>> more_boar(22, 79)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(23, 25)
-          0
+          >>> more_boar(1, 18)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(205, 663)
-          0
+          >>> more_boar(23, 79)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(70, 10)
-          0
+          >>> more_boar(40, 54)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(34, 16)
-          0
+          >>> more_boar(16, 47)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(81, 9)
-          0
+          >>> more_boar(9, 11)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(11, 87)
-          0
+          >>> more_boar(87, 82)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(38, 54)
-          0
+          >>> more_boar(38, 54)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(63, 40)
-          0
+          >>> more_boar(93, 6)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(51, 77)
-          0
+          >>> more_boar(21, 51)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(74, 69)
-          0
+          >>> more_boar(31, 55)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(39, 36)
-          0
+          >>> more_boar(139, 443)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(73, 90)
-          0
+          >>> more_boar(90, 55)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(114, 792)
-          0
+          >>> more_boar(24, 60)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(11, 55)
-          0
+          >>> more_boar(40, 81)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(46, 74)
-          0
+          >>> more_boar(79, 26)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(46, 10)
-          0
+          >>> more_boar(10, 16)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(9, 73)
-          0
+          >>> more_boar(73, 62)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(19, 81)
-          0
+          >>> more_boar(81, 8)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(7, 0)
-          0
+          >>> more_boar(0, 26)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(596, 980)
-          0
+          >>> more_boar(35, 59)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(23, 40)
-          0
+          >>> more_boar(40, 54)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(74, 67)
-          0
+          >>> more_boar(1, 23)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(38, 83)
-          0
+          >>> more_boar(50, 92)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(56, 46)
-          0
+          >>> more_boar(12, 44)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(3, 27)
-          0
+          >>> more_boar(31, 98)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(39, 0)
-          0
+          >>> more_boar(39, 0)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(89, 56)
-          0
+          >>> more_boar(97, 74)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(13, 68)
-          0
+          >>> more_boar(708, 563)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(44, 28)
-          0
+          >>> more_boar(796, 99)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(59, 15)
-          0
+          >>> more_boar(96, 61)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(79, 49)
-          0
+          >>> more_boar(49, 20)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(4, 22)
-          0
+          >>> more_boar(22, 43)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(31, 67)
-          0
+          >>> more_boar(31, 67)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(82, 93)
-          0
+          >>> more_boar(36, 2)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(67, 18)
-          0
+          >>> more_boar(18, 907)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(4, 24)
-          0
+          >>> more_boar(24, 79)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(64, 67)
-          0
+          >>> more_boar(3, 79)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(19, 62)
-          0
+          >>> more_boar(62, 5)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(38, 97)
-          0
+          >>> more_boar(97, 97)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(51, 53)
-          0
+          >>> more_boar(51, 53)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(52, 63)
-          0
+          >>> more_boar(63, 91)
+          False
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile(57, 40)
-          0
+          >>> more_boar(40, 73)
+          True
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         }
       ],
       'scored': True,

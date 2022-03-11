@@ -1,7 +1,7 @@
 """CS 61A Presents The Game of Hog."""
 
-from dice import four_sided, make_test_dice, six_sided
-from ucb import interact, main, trace
+from dice import six_sided, four_sided, make_test_dice
+from ucb import main, trace, interact
 
 GOAL_SCORE = 100  # The goal of Hog is to score 100 points.
 
@@ -21,51 +21,23 @@ def roll_dice(num_rolls, dice=six_sided):
     assert type(num_rolls) == int, 'num_rolls must be an integer.'
     assert num_rolls > 0, 'Must roll at least once.'
     # BEGIN PROBLEM 1
-    tol = 0
-    list1 = []
-    num = 0
-    bool = True
-    while num < num_rolls:
-        num += 1
-        list1.append(dice())
-    for li1 in list1:
-        if (li1 == 1):
-            bool = False
-            break
-        tol += li1
-    if bool == True:
-        return tol
-    else:
-        return 1
+    "*** YOUR CODE HERE ***"
     # END PROBLEM 1
 
 
-def picky_piggy(score):
+def piggy_points(score):
     """Return the points scored from rolling 0 dice.
 
     score:  The opponent's current score.
     """
     # BEGIN PROBLEM 2
-    if (score == 0):
-        return 7
-    elif score % 6 == 1:
-        return 1
-    elif score % 6 == 2:
-        return 4
-    elif score % 6 == 3:
-        return 2
-    elif score % 6 == 4:
-        return 8
-    elif score % 6 == 5:
-        return 5
-    elif score % 6 == 0:
-        return 7
+    "*** YOUR CODE HERE ***"
     # END PROBLEM 2
 
 
 def take_turn(num_rolls, opponent_score, dice=six_sided, goal=GOAL_SCORE):
     """Simulate a turn rolling NUM_ROLLS dice, which may be 0 in the case
-    of a player using Picky Piggy.
+    of a player using Piggy Points.
     Return the points scored for the turn by the current player.
 
     num_rolls:       The number of dice rolls that will be made.
@@ -79,24 +51,29 @@ def take_turn(num_rolls, opponent_score, dice=six_sided, goal=GOAL_SCORE):
     assert num_rolls <= 10, 'Cannot roll more than 10 dice.'
     assert opponent_score < goal, 'The game should be over.'
     # BEGIN PROBLEM 3
-    if (num_rolls == 0):
-        return picky_piggy(opponent_score)
-    else:
-        return roll_dice(num_rolls, dice)
+    "*** YOUR CODE HERE ***"
     # END PROBLEM 3
 
 
-def hog_pile(player_score, opponent_score):
-    """Return the points scored by player due to Hog Pile.
+def more_boar(player_score, opponent_score):
+    """Return whether the player gets an extra turn.
 
     player_score:   The total score of the current player.
     opponent_score: The total score of the other player.
+
+    >>> more_boar(21, 43)
+    True
+    >>> more_boar(22, 43)
+    True
+    >>> more_boar(43, 21)
+    False
+    >>> more_boar(12, 12)
+    False
+    >>> more_boar(7, 8)
+    False
     """
     # BEGIN PROBLEM 4
-    if player_score == opponent_score:
-        return opponent_score
-    else:
-        return 0
+    "*** YOUR CODE HERE ***"
     # END PROBLEM 4
 
 
@@ -114,6 +91,39 @@ def next_player(who):
 def silence(score0, score1):
     """Announce nothing (see Phase 2)."""
     return silence
+
+
+def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
+         goal=GOAL_SCORE, say=silence):
+    """Simulate a game and return the final scores of both players, with Player
+    0's score first, and Player 1's score second.
+
+    A strategy is a function that takes two total scores as arguments (the
+    current player's score, and the opponent's score), and returns a number of
+    dice that the current player will roll this turn.
+
+    strategy0:  The strategy function for Player 0, who plays first.
+    strategy1:  The strategy function for Player 1, who plays second.
+    score0:     Starting score for Player 0
+    score1:     Starting score for Player 1
+    dice:       A function of zero arguments that simulates a dice roll.
+    goal:       The game ends and someone wins when this score is reached.
+    say:        The commentary function to call at the end of the first turn.
+    """
+    who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
+    # BEGIN PROBLEM 5
+    "*** YOUR CODE HERE ***"
+    # END PROBLEM 5
+    # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
+    # BEGIN PROBLEM 6
+    "*** YOUR CODE HERE ***"
+    # END PROBLEM 6
+    return score0, score1
+
+
+#######################
+# Phase 2: Commentary #
+#######################
 
 
 def say_scores(score0, score1):
@@ -145,53 +155,14 @@ def announce_lead_changes(last_leader=None):
         if leader != None and leader != last_leader:
             print('Player', leader, 'takes the lead by', abs(score0 - score1))
         return announce_lead_changes(leader)
-
     return say
-
-
-def announce_highest(who, last_score=0, running_high=0):
-    """Return a commentary function that announces when WHO's score
-    increases by more than ever before in the game.
-
-    >>> f0 = announce_highest(1) # Only announce Player 1 score gains
-    >>> f1 = f0(12, 0)
-    >>> f2 = f1(12, 9)
-    9 point(s)! That's a record gain for Player 1!
-    >>> f3 = f2(20, 9)
-    >>> f4 = f3(20, 30)
-    21 point(s)! That's a record gain for Player 1!
-    >>> f5 = f4(20, 47) # Player 1 gets 17 points; not enough for a new high
-    >>> f6 = f5(21, 47)
-    >>> f7 = f6(21, 77)
-    30 point(s)! That's a record gain for Player 1!
-    """
-    assert who == 0 or who == 1, 'The who argument should indicate a player.'
-
-    # BEGIN PROBLEM 7
-    def annouce_scores(play0_score, play1_score):
-        last_score1 = last_score
-        running_high1 = running_high
-        if who == 0:
-            last_score1 = play0_score
-            if play0_score - last_score > running_high:
-                running_high1 = play0_score - last_score
-                print(running_high1,
-                      "point(s)! That's a record gain for Player 0!")
-        else:
-            last_score1 = play1_score
-            if play1_score - last_score > running_high:
-                running_high1 = play1_score - last_score
-
-                print(running_high1,
-                      "point(s)! That's a record gain for Player 1!")
-        return announce_highest(who, last_score1, running_high1)
-
-    return annouce_scores
-    # END PROBLEM 7
 
 
 def both(f, g):
     """Return a commentary function that says what f says, then what g says.
+
+    NOTE: the following game is not possible under the rules, it's just
+    an example for the sake of the doctest
 
     >>> h0 = both(say_scores, announce_lead_changes())
     >>> h1 = h0(10, 0)
@@ -205,64 +176,33 @@ def both(f, g):
     """
     def say(score0, score1):
         return both(f(score0, score1), g(score0, score1))
-
     return say
 
 
-def play(strategy0,
-         strategy1,
-         score0=0,
-         score1=0,
-         dice=six_sided,
-         goal=GOAL_SCORE,
-         say=silence):
-    """Simulate a game and return the final scores of both players, with Player
-    0's score first, and Player 1's score second.
+def announce_highest(who, last_score=0, running_high=0):
+    """Return a commentary function that announces when WHO's score
+    increases by more than ever before in the game.
 
-    A strategy is a function that takes two total scores as arguments (the
-    current player's score, and the opponent's score), and returns a number of
-    dice that the current player will roll this turn.
+    NOTE: the following game is not possible under the rules, it's just
+    an example for the sake of the doctest
 
-    strategy0:  The strategy function for Player 0, who plays first.
-    strategy1:  The strategy function for Player 1, who plays second.
-    score0:     Starting score for Player 0
-    score1:     Starting score for Player 1
-    dice:       A function of zero arguments that simulates a dice roll.
-    goal:       The game ends and someone wins when this score is reached.
-    say:        The commentary function to call at the end of the first turn.
+    >>> f0 = announce_highest(1) # Only announce Player 1 score gains
+    >>> f1 = f0(12, 0)
+    >>> f2 = f1(12, 9)
+    Player 1 has reached a new maximum point gain. 9 point(s)!
+    >>> f3 = f2(20, 9)
+    >>> f4 = f3(20, 30)
+    Player 1 has reached a new maximum point gain. 21 point(s)!
+    >>> f5 = f4(20, 47) # Player 1 gets 17 points; not enough for a new high
+    >>> f6 = f5(21, 47)
+    >>> f7 = f6(21, 77)
+    Player 1 has reached a new maximum point gain. 30 point(s)!
     """
-    who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
-    # BEGIN PROBLEM 5
-    while score1 < goal:
-        if who == 0:
-            num_rolls = strategy0(score0, score1)
-            score0 += take_turn(num_rolls, score1, dice=dice, goal=goal)
-            score = hog_pile(score0, score1)
-            score0 += score
-        who = next_player(who)
+    assert who == 0 or who == 1, 'The who argument should indicate a player.'
+    # BEGIN PROBLEM 7
+    "*** YOUR CODE HERE ***"
+    # END PROBLEM 7
 
-        say = say(score0, score1)
-        if score0 < goal:
-            if who == 1:
-                num_rolls = strategy1(score1, score0)
-                score1 += take_turn(num_rolls, score0, dice=dice, goal=goal)
-                score = hog_pile(score1, score0)
-                score1 += score
-                say = say(score0, score1)
-        else:
-            break
-        who = next_player(who)
-
-    # END PROBLEM 5
-    # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
-    # BEGIN PROBLEM 6
-    # END PROBLEM 6
-    return score0, score1
-
-
-#######################
-# Phase 2: Commentary #
-#######################
 
 #######################
 # Phase 3: Strategies #
@@ -284,13 +224,12 @@ def always_roll(n):
     """
     def strategy(score, opponent_score):
         return n
-
     return strategy
 
 
 def make_averaged(original_function, trials_count=1000):
     """Return a function that returns the average value of ORIGINAL_FUNCTION
-    called TRIALS_COUNT times.
+    when called.
 
     To implement this function, you will have to use *args syntax, a new Python
     feature introduced in this project.  See the project description.
@@ -300,17 +239,8 @@ def make_averaged(original_function, trials_count=1000):
     >>> averaged_dice(1, dice)
     3.0
     """
-
     # BEGIN PROBLEM 8
-    def averaged_dice(*args):
-        number = 0
-        tol = 0
-        while number < trials_count:
-            number += 1
-            tol += original_function(*args)
-        return tol / trials_count
-
-    return averaged_dice
+    "*** YOUR CODE HERE ***"
     # END PROBLEM 8
 
 
@@ -324,17 +254,7 @@ def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
     1
     """
     # BEGIN PROBLEM 9
-    f = make_averaged(roll_dice, trials_count)
-    number = 0
-    max = 0
-    num = 0
-    while number < 10:
-        number += 1
-        a = f(number, dice)
-        if max < a:
-            max = a
-            num = number
-    return num
+    "*** YOUR CODE HERE ***"
     # END PROBLEM 9
 
 
@@ -364,51 +284,39 @@ def run_experiments():
     print('always_roll(6) win rate:', average_win_rate(always_roll(6)))
 
     #print('always_roll(8) win rate:', average_win_rate(always_roll(8)))
-    #print('picky_piggy_strategy win rate:', average_win_rate(picky_piggy_strategy))
-    print('hog_pile_strategy win rate:', average_win_rate(hog_pile_strategy))
+    #print('piggypoints_strategy win rate:', average_win_rate(piggypoints_strategy))
+    #print('more_boar_strategy win rate:', average_win_rate(more_boar_strategy))
     #print('final_strategy win rate:', average_win_rate(final_strategy))
     "*** You may add additional experiments as you wish ***"
 
 
-def picky_piggy_strategy(score, opponent_score, cutoff=8, num_rolls=6):
-    """This strategy returns 0 dice if that gives at least CUTOFF points, and
-    returns NUM_ROLLS otherwise.
+def piggypoints_strategy(score, opponent_score, cutoff=8, num_rolls=6):
+    """This strategy rolls 0 dice if that gives at least CUTOFF points, and
+    rolls NUM_ROLLS otherwise.
     """
     # BEGIN PROBLEM 10
-    #如果值0个色子得到的分数大于或等于cutoff时返回0，否则返回num_rolls
-    if picky_piggy(opponent_score) >= cutoff:
-        return 0
-    else:
-        return num_rolls
+    return 6  # Replace this statement
     # END PROBLEM 10
 
 
-def hog_pile_strategy(score, opponent_score, cutoff=8, num_rolls=6):
-    """This strategy returns 0 dice when this would result in Hog Pile taking
-    effect. It also returns 0 dice if it gives at least CUTOFF points.
-    Otherwise, it returns NUM_ROLLS.
+def more_boar_strategy(score, opponent_score, cutoff=8, num_rolls=6):
+    """This strategy rolls 0 dice when it triggers an extra turn. It also
+    rolls 0 dice if it gives at least CUTOFF points and does not give an extra turn.
+    Otherwise, it rolls NUM_ROLLS.
     """
     # BEGIN PROBLEM 11
-    num = picky_piggy_strategy(score, opponent_score, cutoff, num_rolls)
-    if num == 0:
-        return 0
-    elif score + picky_piggy(opponent_score) == opponent_score:
-        return 0
-    else:
-        return num_rolls
+    return 6  # Replace this statement
     # END PROBLEM 11
 
 
 def final_strategy(score, opponent_score):
     """Write a brief description of your final strategy.
-    1. When in a leading position or close to the target score, throwing multiple dice means higher risk
-    2. Calculate throwing 0 and piles at any time
-    
+
+    *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
-    return 6  # Remove this line once implemented.
+    return 6  # Replace this statement
     # END PROBLEM 12
-
 
 ##########################
 # Command Line Interface #
@@ -423,9 +331,7 @@ def run(*args):
     """Read in the command-line argument and calls corresponding functions."""
     import argparse
     parser = argparse.ArgumentParser(description="Play Hog")
-    parser.add_argument('--run_experiments',
-                        '-r',
-                        action='store_true',
+    parser.add_argument('--run_experiments', '-r', action='store_true',
                         help='Runs strategy experiments')
 
     args = parser.parse_args()

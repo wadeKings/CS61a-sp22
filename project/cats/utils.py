@@ -3,11 +3,15 @@
 import string
 from math import sqrt
 
+############################
+# String utility functions #
+############################
+
+
 def lines_from_file(path):
     """Return a list of strings, one for each line in a file."""
     with open(path, 'r') as f:
         return [line.strip() for line in f.readlines()]
-
 
 
 def remove_punctuation(s):
@@ -15,13 +19,23 @@ def remove_punctuation(s):
 
     >>> remove_punctuation("It's a lovely day, don't you think?")
     'Its a lovely day dont you think'
+	>>> remove_punctuation("Its a lovely day dont you think")
+    'Its a lovely day dont you think'
     """
     punctuation_remover = str.maketrans('', '', string.punctuation)
     return s.strip().translate(punctuation_remover)
 
 
 def lower(s):
-    """Return a lowercased version of s."""
+    """Return a lowercased version of s.
+
+	>>> lower("HELLO")
+	'hello'
+	>>> lower("World")
+	'world'
+	>>> lower("hello WORLD")
+	'hello world'
+	"""
     return s.lower()
 
 
@@ -34,15 +48,17 @@ def split(s):
     """
     return s.split()
 
-#########################################
-# Functions relating to keyboard layout #
-#########################################
+#############################
+# Keyboard layout functions #
+#############################
 
-KEY_LAYOUT = [["1","2","3","4","5","6","7","8","9","0","-","="],
-              ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p","[","]"],
-			  ["a", "s", "d", "f", "g", "h", "j", "k", "l",";","'"],
-			  ["z", "x", "c", "v", "b", "n", "m",",",".","/"],
+
+KEY_LAYOUT = [["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
+              ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]"],
+			  ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'"],
+			  ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"],
               [" "]]
+
 
 def distance(p1, p2):
 	"""Return the Euclidean distance between two points
@@ -58,6 +74,7 @@ def distance(p1, p2):
 	5.657
 	"""
 	return sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
+
 
 def get_key_distances():
 	"""Return a new dictionary mapping key pairs to distances.
@@ -91,7 +108,8 @@ def get_key_distances():
 			compute_pairwise_distances(i, j, key_distance)
 
 	max_value = max(key_distance.values())
-	return {key : value * 8 / max_value for key, value in key_distance.items()}
+	return {key: value * 8 / max_value for key, value in key_distance.items()}
+
 
 def count(f):
     """Keeps track of the number of times a function f is called using the

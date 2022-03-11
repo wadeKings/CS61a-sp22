@@ -9,8 +9,7 @@ test = {
           >>> check_strategy(hog.final_strategy)
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         }
       ],
       'scored': False,

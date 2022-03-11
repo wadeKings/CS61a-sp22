@@ -26,12 +26,12 @@ def take_turn(prev_rolls, move_history, goal, game_rules):
     fair_dice = dice.make_fair_dice(6)
     dice_results = []
 
-    hog_pile = game_rules["Hog Pile"]
+    more_boar = game_rules["More Boar"]
 
     try:
-        old_hog_pile = hog.hog_pile
-        if not hog_pile:
-            hog.hog_pile = lambda score0, score1: 0
+        old_more_boar = hog.more_boar
+        if not more_boar:
+            hog.more_boar = lambda score0, score1: False
 
         def logged_dice():
             if len(dice_results) < len(prev_rolls):
@@ -93,7 +93,7 @@ def take_turn(prev_rolls, move_history, goal, game_rules):
         else:
             game_over = True
     finally:
-        hog.hog_pile = old_hog_pile
+        hog.more_boar = old_more_boar
 
     return {
         "rolls": dice_results,
@@ -107,8 +107,8 @@ def take_turn(prev_rolls, move_history, goal, game_rules):
 @route
 def strategy(name, scores):
     STRATEGIES = {
-        "picky_piggy_strategy": hog.picky_piggy_strategy,
-        "hog_pile_strategy": hog.hog_pile_strategy,
+        "piggypoints_strategy": hog.piggypoints_strategy,
+        "more_boar_strategy": hog.more_boar_strategy,
         "final_strategy": hog.final_strategy,
     }
     return STRATEGIES[name](*scores[::-1])

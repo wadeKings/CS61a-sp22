@@ -1,53 +1,52 @@
 test = {
   'name': 'Question 11',
-  'points': 1,
+  'points': 2,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> hog_pile_strategy(2, 10, cutoff=10, num_rolls=6)
-          0
+          >>> more_boar_strategy(3, 19, cutoff=8, num_rolls=6)
+          962aea5f59fc55bd65ccacf4603c8f22
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(30, 54, cutoff=10, num_rolls=6)
-          6
+          >>> more_boar_strategy(30, 54, cutoff=7, num_rolls=6)
+          327b19ffebddf93982e1ad2a4a6486f4
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(20, 36, cutoff=7, num_rolls=6)
-          0
+          >>> more_boar_strategy(17, 36, cutoff=100, num_rolls=6)
+          962aea5f59fc55bd65ccacf4603c8f22
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(24, 5, cutoff=8, num_rolls=6)
-          6
+          >>> more_boar_strategy(24, 3, cutoff=8, num_rolls=6)
+          962aea5f59fc55bd65ccacf4603c8f22
+          # locked
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
           >>> from tests.check_strategy import check_strategy
-          >>> check_strategy(hog_pile_strategy)
+          >>> check_strategy(more_boar_strategy)
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         }
       ],
       'scored': True,
@@ -61,903 +60,803 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> hog_pile_strategy(44, 47, 0, 4)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(37, 12, 8, 10)
-          10
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(40, 15, 13, 9)
-          9
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(24, 3, 8, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(46, 55, 5, 2)
-          2
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(99, 78, 15, 7)
-          7
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(10, 73, 3, 5)
+          >>> more_boar_strategy(9, 83, cutoff=18, num_rolls=5)
           5
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(47, 68, 3, 4)
+          >>> more_boar_strategy(68, 87, cutoff=9, num_rolls=2)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(67, 84, 17, 10)
-          10
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(92, 54, 1, 7)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(9, 15, 0, 2)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(25, 63, 16, 2)
-          2
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(75, 27, 6, 2)
-          2
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(82, 48, 10, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(88, 12, 7, 10)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(72, 12, 5, 8)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(41, 69, 1, 5)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(15, 6, 16, 7)
-          7
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(42, 19, 5, 2)
-          2
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(93, 98, 8, 4)
-          4
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(99, 90, 15, 10)
-          10
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(73, 79, 4, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(4, 44, 0, 5)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(83, 40, 9, 7)
-          7
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(34, 3, 0, 8)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(4, 62, 15, 7)
-          7
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(53, 62, 6, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(19, 56, 8, 9)
-          9
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(1, 5, 0, 4)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(85, 34, 8, 1)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(37, 37, 13, 5)
-          5
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(82, 87, 16, 3)
+          >>> more_boar_strategy(15, 72, cutoff=11, num_rolls=3)
           3
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(87, 43, 5, 7)
-          7
+          >>> more_boar_strategy(24, 3, cutoff=8, num_rolls=1)
+          0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(20, 7, 2, 3)
-          3
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(33, 85, 4, 4)
-          4
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(73, 15, 12, 8)
-          8
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(5, 98, 8, 2)
+          >>> more_boar_strategy(46, 55, cutoff=5, num_rolls=2)
           2
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(15, 76, 3, 4)
+          >>> more_boar_strategy(16, 73, cutoff=8, num_rolls=5)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(33, 75, 19, 5)
-          5
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(9, 41, 0, 5)
+          >>> more_boar_strategy(62, 25, cutoff=1, num_rolls=10)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(70, 91, 7, 6)
-          6
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(64, 35, 12, 3)
-          3
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(51, 92, 14, 8)
-          8
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(68, 64, 17, 6)
-          6
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(20, 35, 17, 4)
-          4
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(75, 30, 3, 1)
+          >>> more_boar_strategy(23, 92, cutoff=14, num_rolls=8)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(61, 69, 8, 5)
-          5
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(7, 6, 7, 9)
+          >>> more_boar_strategy(14, 93, cutoff=9, num_rolls=4)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(0, 51, 17, 5)
-          5
+          >>> more_boar_strategy(92, 54, cutoff=1, num_rolls=7)
+          0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(42, 45, 8, 6)
-          6
+          >>> more_boar_strategy(31, 57, cutoff=4, num_rolls=3)
+          0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(48, 96, 11, 2)
+          >>> more_boar_strategy(13, 76, cutoff=1, num_rolls=8)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(3, 67, cutoff=12, num_rolls=1)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(48, 74, cutoff=16, num_rolls=7)
+          7
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(3, 97, cutoff=12, num_rolls=6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(12, 5, cutoff=0, num_rolls=8)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(41, 96, cutoff=16, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(31, 68, cutoff=7, num_rolls=5)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(66, 8, cutoff=2, num_rolls=2)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(9, 75, cutoff=9, num_rolls=5)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(7, 98, cutoff=6, num_rolls=10)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(48, 84, cutoff=12, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(27, 84, cutoff=2, num_rolls=3)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(96, 56, cutoff=13, num_rolls=7)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(3, 64, cutoff=17, num_rolls=2)
           2
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(57, 96, 9, 6)
-          6
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(28, 11, 13, 8)
-          8
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(25, 29, 5, 7)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(69, 2, 15, 8)
-          8
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(77, 26, 7, 9)
-          9
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(85, 15, 0, 3)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(79, 86, 5, 7)
+          >>> more_boar_strategy(62, 90, cutoff=15, num_rolls=7)
           7
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(35, 32, 14, 6)
-          6
+          >>> more_boar_strategy(98, 45, cutoff=17, num_rolls=8)
+          0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(49, 44, 13, 8)
+          >>> more_boar_strategy(56, 72, cutoff=16, num_rolls=6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(24, 94, cutoff=18, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(94, 94, cutoff=17, num_rolls=6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(17, 46, cutoff=3, num_rolls=10)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(87, 16, cutoff=2, num_rolls=8)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(38, 77, cutoff=11, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(73, 57, cutoff=3, num_rolls=7)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(11, 78, cutoff=18, num_rolls=10)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(55, 94, cutoff=12, num_rolls=8)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(19, 88, cutoff=18, num_rolls=3)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(50, 68, cutoff=13, num_rolls=5)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(2, 97, cutoff=16, num_rolls=2)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(71, 97, cutoff=16, num_rolls=3)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(91, 7, cutoff=5, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(35, 12, cutoff=2, num_rolls=1)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(51, 92, cutoff=14, num_rolls=8)
           8
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(77, 65, 6, 4)
+          >>> more_boar_strategy(64, 49, cutoff=16, num_rolls=4)
           4
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(99, 18, 2, 1)
+          >>> more_boar_strategy(35, 45, cutoff=3, num_rolls=1)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(18, 24, 17, 10)
-          10
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(44, 11, 18, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(68, 38, 17, 5)
-          5
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(46, 63, 8, 6)
-          6
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(20, 60, 19, 6)
-          6
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(67, 53, 10, 6)
-          6
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(63, 39, 4, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(54, 75, 9, 8)
-          8
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(78, 86, 18, 9)
-          9
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(45, 11, 8, 9)
-          9
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(88, 19, 14, 6)
-          6
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(22, 18, 14, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(30, 91, 9, 10)
-          10
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(19, 81, 8, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(33, 7, 0, 2)
+          >>> more_boar_strategy(35, 68, cutoff=15, num_rolls=2)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(87, 95, 11, 6)
+          >>> more_boar_strategy(75, 93, cutoff=16, num_rolls=3)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(98, 34, cutoff=7, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(51, 81, cutoff=4, num_rolls=1)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(45, 40, cutoff=18, num_rolls=6)
           6
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(69, 86, 8, 10)
-          10
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(87, 61, 10, 4)
-          4
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(47, 60, 6, 4)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(67, 65, 14, 4)
-          4
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(3, 66, 3, 7)
-          0
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(82, 23, 8, 8)
-          8
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(42, 89, 14, 1)
-          1
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(32, 13, 4, 4)
-          4
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(20, 96, 12, 4)
-          4
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(77, 59, 15, 7)
-          7
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(88, 32, 15, 2)
+          >>> more_boar_strategy(96, 11, cutoff=13, num_rolls=2)
           2
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(19, 30, 4, 7)
+          >>> more_boar_strategy(16, 21, cutoff=9, num_rolls=6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(97, 99, cutoff=1, num_rolls=6)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(91, 29, 18, 4)
+          >>> more_boar_strategy(18, 89, cutoff=11, num_rolls=5)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(97, 64, cutoff=7, num_rolls=2)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(49, 88, cutoff=16, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(33, 89, cutoff=10, num_rolls=6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(98, 56, cutoff=8, num_rolls=2)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(0, 84, cutoff=10, num_rolls=3)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(9, 55, cutoff=12, num_rolls=2)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(96, 43, cutoff=13, num_rolls=7)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(18, 34, cutoff=16, num_rolls=3)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(24, 81, cutoff=9, num_rolls=4)
           4
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(50, 46, 10, 3)
-          3
+          >>> more_boar_strategy(11, 87, cutoff=18, num_rolls=1)
+          1
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(42, 67, 18, 7)
-          7
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> hog_pile_strategy(37, 91, 4, 9)
+          >>> more_boar_strategy(51, 85, cutoff=16, num_rolls=9)
           9
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(59, 82, 0, 6)
+          >>> more_boar_strategy(63, 40, cutoff=7, num_rolls=9)
+          9
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(60, 51, cutoff=13, num_rolls=6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(53, 74, cutoff=5, num_rolls=8)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(22, 41, 19, 7)
+          >>> more_boar_strategy(27, 72, cutoff=11, num_rolls=6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(75, 73, cutoff=11, num_rolls=8)
+          8
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(86, 24, cutoff=0, num_rolls=5)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(18, 95, cutoff=1, num_rolls=1)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(94, 69, cutoff=15, num_rolls=8)
+          8
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(53, 46, cutoff=3, num_rolls=3)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(91, 9, cutoff=9, num_rolls=5)
+          5
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(19, 81, cutoff=8, num_rolls=1)
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(79, 98, cutoff=8, num_rolls=8)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(47, 78, cutoff=15, num_rolls=8)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(68, 89, cutoff=2, num_rolls=8)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(13, 76, cutoff=6, num_rolls=4)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(8, 79, cutoff=7, num_rolls=6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(45, 65, cutoff=16, num_rolls=6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(31, 98, cutoff=14, num_rolls=1)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(40, 3, cutoff=4, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(89, 56, cutoff=14, num_rolls=1)
+          1
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(32, 13, cutoff=4, num_rolls=4)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(45, 17, cutoff=13, num_rolls=8)
+          8
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(77, 59, cutoff=15, num_rolls=7)
           7
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(84, 90, 6, 5)
+          >>> more_boar_strategy(48, 34, cutoff=1, num_rolls=5)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(90, 35, 9, 4)
+          >>> more_boar_strategy(56, 86, cutoff=1, num_rolls=7)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(68, 98, cutoff=11, num_rolls=7)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(2, 28, cutoff=10, num_rolls=6)
+          6
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(42, 67, cutoff=18, num_rolls=7)
+          7
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(9, 55, cutoff=11, num_rolls=6)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(10, 96, cutoff=11, num_rolls=9)
+          0
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(41, 19, cutoff=5, num_rolls=3)
+          3
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(90, 38, cutoff=12, num_rolls=5)
+          5
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> more_boar_strategy(35, 51, cutoff=7, num_rolls=4)
           4
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(90, 42, 1, 5)
+          >>> more_boar_strategy(42, 52, cutoff=1, num_rolls=5)
           0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> hog_pile_strategy(1, 35, 8, 10)
-          10
+          >>> more_boar_strategy(35, 57, cutoff=8, num_rolls=10)
+          0
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         }
       ],
       'scored': True,
