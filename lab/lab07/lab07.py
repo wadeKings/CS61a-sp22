@@ -66,18 +66,13 @@ def store_digits(n):
     >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
     >>> link1 = Link(3, Link(Link(4), Link(5, Link(6))))
     """
-     
-    if type(n) is int :
-        lst =[]
-        while n >10:
-            lst += [n%10]
-            n = n //10  
-        lst += [n] 
-        n = lst    
-    if  n:
-        return Link(n[-1],store_digits(n[:-1])) 
-    else:
-        return Link.empty             
+       
+
+    result = Link.empty
+    while n > 0:
+        result = Link(n % 10, result)
+        n //= 10
+    return result              
 
 
 

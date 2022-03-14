@@ -20,6 +20,9 @@ class Link:
             string += str(self.first) + ' '
             self = self.rest
         return string + str(self.first) + '>'
+
+
+
 #Similar to [x for x in range(3, 6)]
 def range_link(start, end):
     """Return a Link containing consecutive integers
@@ -91,3 +94,38 @@ def add(ordered_list, new_val):
 
 #link = Link(1000, Link())
 #Link.__init__() missing 1 required positional argument: 'first'
+
+
+
+def remove_all(link, value):
+    """删除链表link中值等于value的所有节点。假设永远不会删除第一个元素.
+
+    >>> l1 = Link(0, Link(2, Link(2, Link(3, Link(1, Link(2, Link(3)))))))
+    >>> print(l1)
+    <0 2 2 3 1 2 3>
+    >>> remove_all(l1, 2)
+    >>> print(l1)
+    <0 3 1 3>
+    >>> remove_all(l1, 3)
+    >>> print(l1)
+    <0 1>
+    >>> remove_all(l1, 3)
+    >>> print(l1)
+    <0 1>
+    """
+    
+    while link != Link.empty:
+        l = link
+        if  link.rest!= Link.empty  :
+            if link.rest.first == value:
+                l.rest = link.rest.rest
+            else:
+               link = link.rest    
+        else:
+            link = link.rest    
+            
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+    
