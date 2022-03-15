@@ -1,3 +1,6 @@
+from pydoc import Helper
+
+
 s = [[1, 2, 3, 4]]
 i = iter(s)
 j = iter(next(i))
@@ -88,11 +91,11 @@ def primes_gen(n):
     >>> list(pg)
     [7, 5, 3, 2]
     """
-    if __________________________________:
+    if n == 1 :
         return
-    if __________________________________:
-        yield __________________________________
-    yield from __________________________________
+    if is_prime(n):
+        yield n
+    yield from primes_gen(n-1)
 
 
 if __name__ == "__main__":
