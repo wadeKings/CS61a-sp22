@@ -67,7 +67,7 @@ def count_leaves(t):
 
 
 #另一种基于sum的巧妙方法
-def count_leaves(t):
+def count_leaves1(t):
     """Returns the number of leaf nodes in T."""
     if t.is_leaf():
         return 1
@@ -117,7 +117,7 @@ def double(t):
         return Tree(t.label * 2,
             [double(b) for b in t.branches])
 
-def double(t):
+def double1(t):
     """ 改变树t而不是生成一颗新树"""
     """Doubles every label in T, mutating T.
     >>> t = Tree(1, [Tree(3, [Tree(5)]), Tree(7)])

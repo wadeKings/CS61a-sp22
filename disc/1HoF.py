@@ -54,8 +54,7 @@ def if_function(condition, true_result, false_result):
 
 #上面的if_function 并不总是和if语句效果相同
 
-
-def if_function(condition, true_result, false_result):
+def if_function1(condition, true_result, false_result):
     """Return true_result if condition is a true value, and
     false_result otherwise.
 

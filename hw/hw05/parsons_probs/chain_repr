@@ -1,0 +1,11 @@
+def chain(t): #0given
+if t.!BLANK:   #1given #blankbranches == []
+return True #2given
+for b in t.!BLANK:   #1given #blankbranches
+if !BLANK == !BLANK and chain(b):   #2given #blankt.label #blankb.label
+return True #3given
+return False #1given
+print('DEBUG:', !BLANK)
+print('DEBUG:', !BLANK)
+# !BLANK
+# !BLANK

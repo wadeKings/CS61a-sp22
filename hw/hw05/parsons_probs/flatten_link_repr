@@ -1,0 +1,10 @@
+def flatten_link(lnk): #0given
+if lnk is !BLANK:  #1given #blankLink.empty
+return [] #2given
+if isinstance(lnk.first, Link): #1given
+return flatten_link(!BLANK) + flatten_link(!BLANK)  #2given #blanklnk.first #blanklnk.rest
+return [!BLANK] + flatten_link(!BLANK)  #1given #blanklnk.first #blanklnk.rest
+print('DEBUG:', !BLANK)
+print('DEBUG:', !BLANK)
+# !BLANK
+# !BLANK

@@ -1,16 +1,3 @@
-passphrase = '*** PASSPHRASE HERE ***'
-
-
-def midsem_survey(p):
-    """
-    You do not need to understand this code.
-    >>> midsem_survey(passphrase)
-    '6b11cc4633eb00f582dcc3a83f713aef58d85a1900d7cd9881d60e76'
-    """
-    import hashlib
-    return hashlib.sha224(p.encode('utf-8')).hexdigest()
-
-
 def has_path(t, term):
     """Return whether there is a path in a Tree where the entries along the path
     spell out a particular term.
@@ -42,7 +29,18 @@ def has_path(t, term):
     False
     """
     assert len(term) > 0, 'no path for empty term.'
-    "*** YOUR CODE HERE ***"
+   
+    if t.label != term[0]:
+        return False
+    elif len(term) == 1:
+        return True
+    #t.branches 可以为空
+    for branch in t.branches:
+        if has_path(branch, term[1:]):
+            return True
+    return False   
+                 
+            
 
 
 def duplicate_link(lnk, val):
@@ -60,7 +58,15 @@ def duplicate_link(lnk, val):
     >>> y
     Link(2, Link(4, Link(6, Link(8))))
     """
-    "*** YOUR CODE HERE ***"
+    if lnk is Link.empty:
+        return 
+    elif lnk.first == val:
+        l = lnk.rest
+        lnk.rest = Link(val,l)
+        duplicate_link(l,val)
+    else:
+        duplicate_link(lnk.rest,val)    
+        
 
 
 def deep_map_mut(fn, lnk):
@@ -80,7 +86,15 @@ def deep_map_mut(fn, lnk):
     >>> print(link1)
     <9 <16> 25 36>
     """
-    "*** YOUR CODE HERE ***"
+    if lnk is Link.empty:
+        return 
+    elif isinstance(lnk.first,int):
+        lnk.first = fn(lnk.first)
+    elif isinstance(lnk.first,Link):
+        deep_map_mut(fn, lnk.first)
+        
+    deep_map_mut(fn, lnk.rest)
+         
 
 
 class Tree:
@@ -159,3 +173,7 @@ class Link:
             string += str(self.first) + ' '
             self = self.rest
         return string + str(self.first) + '>'
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

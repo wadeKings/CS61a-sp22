@@ -12,7 +12,12 @@ def chain(t):
     >>> chain(t2)
     False
     """
-    "*** YOUR CODE HERE ***"
+    if t.branches == []:
+        return True
+    for b in t.branches:
+        if t.label == b.label and chain(b):
+            return True
+    return False
 
 
 class Tree:

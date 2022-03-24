@@ -82,6 +82,8 @@ class Mint:
 
 
 class Coin:
+    cents = None # will be provided by subclasses, but not by Coin itself
+    
     def __init__(self, year):
         self.year = year
 
