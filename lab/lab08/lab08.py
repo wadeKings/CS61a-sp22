@@ -20,8 +20,19 @@ def repeated(t, k):
     2
     """
     assert k > 1
-    "*** YOUR CODE HERE ***"
-
+    last_item = next(t)
+    n = 1
+    while True: #
+        item = next(t)
+    
+        if last_item == item: 
+            n += 1 #
+        else: #
+            n = 1 # 
+            last_item = item   
+        if n == k: 
+            return last_item
+        
 
 def merge(incr_a, incr_b):
     """Yield the elements of strictly increasing iterables incr_a and incr_b, removing
@@ -42,7 +53,19 @@ def merge(incr_a, incr_b):
     """
     iter_a, iter_b = iter(incr_a), iter(incr_b)
     next_a, next_b = next(iter_a, None), next(iter_b, None)
-    "*** YOUR CODE HERE ***"
+    while next_a is not None and next_b is not None:
+        if next_a is None:
+            yield from iter_b
+        elif next_b is None:
+            yield from iter_a    
+        elif next_a < next_b:
+            yield next_a
+            yield from merge(next_a, next_b)
+        else: 
+            yield next_b   
+            yield from merge(next_a, next_b) 
+        
+    
 
 
 def deep_len(lnk):
